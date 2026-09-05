@@ -18,17 +18,39 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
     }
 
-    img {
-      width: 100vw;
-      height: 100vh;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2)), url("warm.jpeg") center / cover no-repeat;
+      filter: blur(18px) saturate(0.9);
+      transform: scale(1.08);
+    }
+
+    .banner {
+      width: min(100vw, calc(100dvh * 1.499));
+      height: auto;
+      max-height: 100dvh;
       object-fit: contain;
       display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    @supports not (height: 100dvh) {
+      .banner {
+        width: min(100vw, calc(100vh * 1.499));
+        max-height: 100vh;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="/warm.jpeg" alt="WARM. New York - Coming Soon" />
+  <img class="banner" src="warm.jpeg" alt="WARM. New York - Coming Soon" />
 </body>
 </html>
