@@ -19,19 +19,10 @@
       min-height: 100dvh;
     }
 
-    picture,
-    img {
+    .banner {
       display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    picture {
       position: fixed;
       inset: 0;
-    }
-
-    .banner {
       width: 100vw;
       height: 100vh;
       height: 100dvh;
@@ -39,19 +30,12 @@
       object-position: center;
     }
 
-    @media (min-width: 768px) {
-      .banner {
-        object-fit: fill;
-      }
-    }
-
   </style>
 </head>
 <body>
-  <picture>
-    <source media="(max-width: 767px)" srcset="warm-mob.png" />
-    <source media="(min-width: 768px)" srcset="warm-web.png" />
-    <img class="banner" src="warm-web.png" alt="WARM. New York - New Limited Drop Heather Grey" />
-  </picture>
+  <video class="banner" autoplay muted loop playsinline poster="warm-web.png" aria-label="WARM. New York campaign video">
+    <source src="warm-video.MP4" type="video/mp4" />
+    Your browser does not support embedded video.
+  </video>
 </body>
 </html>
